@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms in HTML</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .tutorial-box {
+            background: white;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+            margin-bottom: 20px;
+        }
+        textarea {
+            width: 100%;
+            height: 150px;
+            font-family: monospace;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+        button {
+            padding: 10px;
+            background: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        #output {
+            margin-top: 10px;
+            padding: 10px;
+            background: white;
+            border: 1px solid #ccc;
+        }
+        #result {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Creating Forms in HTML</h1>
+        <p>Learn how to create forms using the &lt;form&gt; tag.</p>
+        <a href="index.html">Back to Home</a>
+    </header>
+
+    <section class="tutorial-box">
+        <h2>Step 1: Learn the Basics</h2>
+        <p>Forms allow users to input and submit data. A basic form looks like this:</p>
+        <pre><code>&lt;form&gt;
+    &lt;label for="name"&gt;Name:&lt;/label&gt;
+    &lt;input type="text" id="name" name="name"&gt;
+    &lt;input type="submit" value="Submit"&gt;
+&lt;/form&gt;</code></pre>
+        <ul>
+            <li><b>&lt;form&gt;</b> - Creates a form.</li>
+            <li><b>&lt;label&gt;</b> - Describes an input field.</li>
+            <li><b>&lt;input&gt;</b> - Defines input fields (e.g., text, email, password).</li>
+            <li><b>&lt;submit&gt;</b> - Creates a submit button.</li>
+        </ul>
+    </section>
+
+    <section class="tutorial-box">
+        <h2>Step 2: Try It Yourself</h2>
+        <p>Create a form with a **text input for a name** and a **submit button**.</p>
+        <textarea id="codeInput" placeholder="Write your HTML code here..."></textarea>
+        <button onclick="runCode()">Run Code</button>
+        <button onclick="checkCode()">Check Answer</button>
+        <div id="output"></div>
+        <p id="result"></p>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 HTML Tutorial | Created by Jack Atherton</p>
+    </footer>
+
+    <script>
+        function runCode() {
+            let code = document.getElementById("codeInput").value;
+            document.getElementById("output").innerHTML = code;
+        }
+
+        function checkCode() {
+            let userCode = document.getElementById("codeInput").value.trim();
+            let correctPattern = /<form>\s*<label\s+for="name">.*<\/label>\s*<input\s+type="text"\s+id="name"\s+name="name">\s*<input\s+type="submit"\s+value="Submit">\s*<\/form>/i;
+
+            if (correctPattern.test(userCode)) {
+                document.getElementById("result").innerHTML = "✅ Correct! Well done.";
+                document.getElementById("result").style.color = "green";
+            } else {
+                document.getElementById("result").innerHTML = "❌ Incorrect. Make sure you include &lt;form&gt;, &lt;label&gt;, and input fields correctly.";
+                document.getElementById("result").style.color = "red";
+            }
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tables in HTML</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .tutorial-box {
+            background: white;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+            margin-bottom: 20px;
+        }
+        textarea {
+            width: 100%;
+            height: 150px;
+            font-family: monospace;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+        button {
+            padding: 10px;
+            background: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        #output {
+            margin-top: 10px;
+            padding: 10px;
+            background: white;
+            border: 1px solid #ccc;
+        }
+        #result {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Creating Tables in HTML</h1>
+        <p>Learn how to create tables using the &lt;table&gt; tag.</p>
+        <a href="index.html">Back to Home</a>
+    </header>
+
+    <section class="tutorial-box">
+        <h2>Step 1: Learn the Basics</h2>
+        <p>HTML tables are created using the following structure:</p>
+        <pre><code>&lt;table&gt;
+    &lt;tr&gt;
+        &lt;th&gt;Header 1&lt;/th&gt;
+        &lt;th&gt;Header 2&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Row 1, Column 1&lt;/td&gt;
+        &lt;td&gt;Row 1, Column 2&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+        <ul>
+            <li><b>&lt;table&gt;</b> - Creates the table.</li>
+            <li><b>&lt;tr&gt;</b> - Defines a row.</li>
+            <li><b>&lt;th&gt;</b> - Defines a header cell.</li>
+            <li><b>&lt;td&gt;</b> - Defines a standard data cell.</li>
+        </ul>
+    </section>
+
+    <section class="tutorial-box">
+        <h2>Step 2: Try It Yourself</h2>
+        <p>Create a table with **two rows** and **two columns**. The first row should contain **headers**.</p>
+        <textarea id="codeInput" placeholder="Write your HTML code here..."></textarea>
+        <button onclick="runCode()">Run Code</button>
+        <button onclick="checkCode()">Check Answer</button>
+        <div id="output"></div>
+        <p id="result"></p>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 HTML Tutorial | Created by Jack Atherton</p>
+    </footer>
+
+    <script>
+        function runCode() {
+            let code = document.getElementById("codeInput").value;
+            document.getElementById("output").innerHTML = code;
+        }
+
+        function checkCode() {
+            let userCode = document.getElementById("codeInput").value.trim();
+            let correctPattern = /<table>\s*<tr>\s*<th>.*<\/th>\s*<th>.*<\/th>\s*<\/tr>\s*<tr>\s*<td>.*<\/td>\s*<td>.*<\/td>\s*<\/tr>\s*<\/table>/i;
+
+            if (correctPattern.test(userCode)) {
+                document.getElementById("result").innerHTML = "✅ Correct! Well done.";
+                document.getElementById("result").style.color = "green";
+            } else {
+                document.getElementById("result").innerHTML = "❌ Incorrect. Make sure you include &lt;th&gt; for headers and &lt;td&gt; for data.";
+                document.getElementById("result").style.color = "red";
+            }
+        }
+    </script>
+
+</body>
+</html>

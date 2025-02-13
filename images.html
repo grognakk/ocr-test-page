@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Images in HTML</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .tutorial-box {
+            background: white;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+            margin-bottom: 20px;
+        }
+        textarea {
+            width: 100%;
+            height: 100px;
+            font-family: monospace;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+        button {
+            padding: 10px;
+            background: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        #output {
+            margin-top: 10px;
+            padding: 10px;
+            background: white;
+            border: 1px solid #ccc;
+        }
+        #result {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Adding Images in HTML</h1>
+        <p>Learn how to add images using the &lt;img&gt; tag.</p>
+        <a href="index.html">Back to Home</a>
+    </header>
+
+    <section class="tutorial-box">
+        <h2>Step 1: Learn the Basics</h2>
+        <p>To add an image in HTML, use the following format:</p>
+        <code>&lt;img src="image.jpg" alt="Description"&gt;</code>
+        <ul>
+            <li><b>src:</b> The file path or URL of the image.</li>
+            <li><b>alt:</b> The alternative text displayed if the image cannot load.</li>
+        </ul>
+    </section>
+
+    <section class="tutorial-box">
+        <h2>Step 2: Try It Yourself</h2>
+        <p>Type your code in the box below. Add an image with a URL and an alt description.</p>
+        <textarea id="codeInput" placeholder="Write your HTML code here..."></textarea>
+        <button onclick="runCode()">Run Code</button>
+        <button onclick="checkCode()">Check Answer</button>
+        <div id="output"></div>
+        <p id="result"></p>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 HTML Tutorial | Created by Jack Atherton</p>
+    </footer>
+
+    <script>
+        function runCode() {
+            let code = document.getElementById("codeInput").value;
+            document.getElementById("output").innerHTML = code;
+        }
+
+        function checkCode() {
+            let userCode = document.getElementById("codeInput").value.trim();
+            let correctPattern = /<img\s+src\s*=\s*["']https?:\/\/[^"']+["']\s+alt\s*=\s*["'][^"']+["']\s*>/i;
+
+            if (correctPattern.test(userCode)) {
+                document.getElementById("result").innerHTML = "✅ Correct! Well done.";
+                document.getElementById("result").style.color = "green";
+            } else {
+                document.getElementById("result").innerHTML = "❌ Incorrect. Make sure you use &lt;img src='URL' alt='description'&gt;";
+                document.getElementById("result").style.color = "red";
+            }
+        }
+    </script>
+
+</body>
+</html>
