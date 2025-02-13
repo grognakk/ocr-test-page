@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="OCR AS-Level Computer Science HTML Example">
+    <title>OCR AS-Level HTML Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        header, nav, section, article, footer {
+            padding: 10px;
+            margin: 10px 0;
+            background: white;
+            border-radius: 5px;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+        }
+        h1, h2 {
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        form {
+            margin-top: 10px;
+        }
+        input, select, textarea {
+            margin: 5px 0;
+            padding: 5px;
+            width: 100%;
+        }
+        .hidden-text {
+            display: none;
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Welcome to the OCR AS-Level HTML Page</h1>
+        <p>This page demonstrates all the essential HTML concepts required for the OCR AS-Level syllabus.</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#text-formatting">Text Formatting</a></li>
+            <li><a href="#images">Images</a></li>
+            <li><a href="#tables">Tables</a></li>
+            <li><a href="#forms">Forms</a></li>
+            <li><a href="#javascript">JavaScript</a></li>
+        </ul>
+    </nav>
+
+    <section id="text-formatting">
+        <h2>Text Formatting</h2>
+        <p>This is a <b>bold</b>, <i>italic</i>, and <u>underlined</u> text example.</p>
+        <p>Here is an ordered list:</p>
+        <ol>
+            <li>First item</li>
+            <li>Second item</li>
+            <li>Third item</li>
+        </ol>
+        <p>Here is an unordered list:</p>
+        <ul>
+            <li>Apple</li>
+            <li>Banana</li>
+            <li>Cherry</li>
+        </ul>
+    </section>
+
+    <section id="images">
+        <h2>Images</h2>
+        <p>Below is an example image:</p>
+        <img src="https://via.placeholder.com/300" alt="Placeholder Image" width="300">
+    </section>
+
+    <section id="tables">
+        <h2>Tables</h2>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>City</th>
+            </tr>
+            <tr>
+                <td>Alice</td>
+                <td>21</td>
+                <td>London</td>
+            </tr>
+            <tr>
+                <td>Bob</td>
+                <td>22</td>
+                <td>Manchester</td>
+            </tr>
+        </table>
+    </section>
+
+    <section id="forms">
+        <h2>Forms and User Input</h2>
+        <form action="submit.html" method="POST">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="4"></textarea>
+
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+
+    <section id="javascript">
+        <h2>JavaScript Example</h2>
+        <button onclick="showText()">Click Me</button>
+        <p id="hidden-message" class="hidden-text">Hello! You clicked the button.</p>
+        
+        <script>
+            function showText() {
+                document.getElementById("hidden-message").style.display = "block";
+            }
+        </script>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 OCR AS-Level Example | Created by Jack Atherton</p>
+    </footer>
+
+</body>
+</html>
