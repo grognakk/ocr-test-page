@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Text Styling</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background: white;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+            margin-bottom: 20px;
+        }
+        textarea {
+            width: 100%;
+            height: 100px;
+            font-family: monospace;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+        button {
+            padding: 10px;
+            background: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        #output {
+            margin-top: 10px;
+            padding: 10px;
+            background: white;
+            border: 1px solid #ccc;
+        }
+        #result {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>CSS Text Styling</h1>
+        <p>Learn how to style text using CSS.</p>
+        <a href="css.html">Back to CSS Topics</a>
+    </header>
+
+    <section class="container">
+        <h2>Step 1: Learn the Basics</h2>
+        <p>CSS allows you to style text in various ways. Example:</p>
+        <pre><code>&lt;style&gt;
+    p {
+        color: blue;
+        font-size: 20px;
+        font-weight: bold;
+    }
+&lt;/style&gt;
+
+&lt;p&gt;This text is blue, bold, and 20px in size.&lt;/p&gt;</code></pre>
+    </section>
+
+    <section class="container">
+        <h2>Step 2: Try It Yourself</h2>
+        <p>Write CSS to make the paragraph **red and italic**.</p>
+        <textarea id="codeInput" placeholder="Write your HTML + CSS code here..."></textarea>
+        <button onclick="runCode()">Run Code</button>
+        <button onclick="checkCode()">Check Answer</button>
+        <div id="output"></div>
+        <p id="result"></p>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 HTML & CSS Tutorial | Created by Jack Atherton</p>
+    </footer>
+
+    <script>
+        function runCode() {
+            let code = document.getElementById("codeInput").value;
+            let outputDiv = document.getElementById("output");
+
+            outputDiv.innerHTML = "";
+            let iframe = document.createElement("iframe");
+            iframe.style.width = "100%";
+            iframe.style.height = "100px";
+            outputDiv.appendChild(iframe);
+
+            let iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+            iframeDoc.open();
+            iframeDoc.write(code);
+            iframeDoc.close();
+        }
+
+        function checkCode() {
+            let userCode = document.getElementById("codeInput").value.trim();
+            let correctPattern = /<style>\s*p\s*{\s*color:\s*red;\s*font-style:\s*italic;\s*}\s*<\/style>\s*<p>.*<\/p>/i;
+
+            if (correctPattern.test(userCode)) {
+                document.getElementById("result").innerHTML = "✅ Correct! Well done.";
+                document.getElementById("result").style.color = "green";
+                markComplete();
+            } else {
+                document.getElementById("result").innerHTML = "❌ Incorrect. Make sure you use CSS inside &lt;style&gt; and apply `color: red; font-style: italic;` to the paragraph.";
+                document.getElementById("result").style.color = "red";
+            }
+        }
+
+        function markComplete() {
+            let completedTopics = JSON.parse(localStorage.getItem("cssProgress")) || [];
+            if (!completedTopics.includes("css-text.html")) {
+                completedTopics.push("css-text.html");
+                localStorage.setItem("cssProgress", JSON.stringify(completedTopics));
+            }
+        }
+    </script>
+
+</body>
+</html>

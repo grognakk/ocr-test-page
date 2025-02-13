@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Learning Hub</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background: white;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+            margin-bottom: 20px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            background: #007bff;
+            color: white;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+        }
+        li a {
+            color: white;
+            text-decoration: none;
+        }
+        li.completed {
+            background: green;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>CSS Learning Hub</h1>
+        <p>Select a topic below to learn and practice CSS.</p>
+        <a href="index.html">Back to Home</a>
+    </header>
+
+    <section class="container">
+        <h2>CSS Topics</h2>
+        <ul id="topicList">
+            <li><a href="css-text.html">Text Styling</a></li>
+            <li><a href="css-background.html">Backgrounds</a></li>
+            <li><a href="css-boxmodel.html">Box Model</a></li>
+            <li><a href="css-layout.html">Layout & Positioning</a></li>
+            <li><a href="css-tables.html">Tables</a></li>
+            <li><a href="css-forms.html">Forms</a></li>
+            <li><a href="css-animations.html">Animations</a></li>
+            <li><a href="css-responsive.html">Responsive Design</a></li>
+        </ul>
+    </section>
+
+    <script>
+        // Progress tracker - marks completed topics
+        document.addEventListener("DOMContentLoaded", function() {
+            let completedTopics = JSON.parse(localStorage.getItem("cssProgress")) || [];
+            completedTopics.forEach(topic => {
+                let listItem = document.querySelector(`a[href="${topic}"]`);
+                if (listItem) {
+                    listItem.parentElement.classList.add("completed");
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
