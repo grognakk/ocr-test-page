@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript in HTML</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .tutorial-box {
+            background: white;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+            margin-bottom: 20px;
+        }
+        textarea {
+            width: 100%;
+            height: 150px;
+            font-family: monospace;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+        button {
+            padding: 10px;
+            background: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        #output {
+            margin-top: 10px;
+            padding: 10px;
+            background: white;
+            border: 1px solid #ccc;
+        }
+        #result {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Using JavaScript in HTML</h1>
+        <p>Learn how to add JavaScript to make web pages interactive.</p>
+        <a href="index.html">Back to Home</a>
+    </header>
+
+    <section class="tutorial-box">
+        <h2>Step 1: Learn the Basics</h2>
+        <p>JavaScript is used to make web pages interactive. Example:</p>
+        <pre><code>&lt;button onclick="showMessage()"&gt;Click Me&lt;/button&gt;
+&lt;p id="message"&gt;&lt;/p&gt;
+
+&lt;script&gt;
+    function showMessage() {
+        document.getElementById("message").innerHTML = "Hello, World!";
+    }
+&lt;/script&gt;</code></pre>
+        <ul>
+            <li><b>&lt;script&gt;</b> - Contains JavaScript code.</li>
+            <li><b>onclick</b> - Runs JavaScript when a button is clicked.</li>
+            <li><b>document.getElementById()</b> - Finds and modifies elements in HTML.</li>
+        </ul>
+    </section>
+
+    <section class="tutorial-box">
+        <h2>Step 2: Try It Yourself</h2>
+        <p>Create a button that, when clicked, changes the text inside a paragraph.</p>
+        <textarea id="codeInput" placeholder="Write your HTML + JavaScript code here..."></textarea>
+        <button onclick="runCode()">Run Code</button>
+        <button onclick="checkCode()">Check Answer</button>
+        <div id="output"></div>
+        <p id="result"></p>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 HTML Tutorial | Created by Jack Atherton</p>
+    </footer>
+
+    <script>
+        function runCode() {
+            let code = document.getElementById("codeInput").value;
+            let outputDiv = document.getElementById("output");
+
+            // Clear previous output
+            outputDiv.innerHTML = "";
+
+            // Create an iframe to run the code safely
+            let iframe = document.createElement("iframe");
+            iframe.style.width = "100%";
+            iframe.style.height = "100px";
+            outputDiv.appendChild(iframe);
+
+            let iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+            iframeDoc.open();
+            iframeDoc.write(code);
+            iframeDoc.close();
+        }
+
+        function checkCode() {
+            let userCode = document.getElementById("codeInput").value.trim();
+            let correctPattern = /<button\s+onclick=["']showMessage\(\)["']>.*<\/button>\s*<p\s+id=["']message["']><\/p>\s*<script>\s*function\s+showMessage\(\)\s*{\s*document\.getElementById\(["']message["']\)\.innerHTML\s*=\s*["']Hello, World!["'];\s*}\s*<\/script>/i;
+
+            if (correctPattern.test(userCode)) {
+                document.getElementById("result").innerHTML = "✅ Correct! Well done.";
+                document.getElementById("result").style.color = "green";
+            } else {
+                document.getElementById("result").innerHTML = "❌ Incorrect. Make sure you include a button, a paragraph with id='message', and JavaScript that changes the text.";
+                document.getElementById("result").style.color = "red";
+            }
+        }
+    </script>
+
+</body>
+</html>
